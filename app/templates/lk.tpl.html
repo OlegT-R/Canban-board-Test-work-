@@ -1,0 +1,22 @@
+<div class="board-wrapper">
+	<form name="addBoardForm" ng-submit="addBoard(); showAdd = false" class="card-form" ng-init="showAdd = false"
+		  ng-show="showAdd">
+		<img src="/img/ico-close.png" class="close-add-card" ng-click="showAdd = false">
+		<div class="form-group"
+			 ng-class="{ 'error' : addBoardForm.boardName.$invalid && !addBoardForm.boardName.$pristine }">
+			<input type="text" name="boardName" class="form-control" placeholder="Type board name"
+				   ng-model="boardName" required>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-offset-8 col-xs-4 form-enter-group">
+				<button type="submit" class="btn btn-primary">Apply</button>
+			</div>
+		</div>
+	</form>
+	<span href="#" ng-click="logout()" class="logout">Logout</span>
+	<h1>{{userName}}'s Kanban Board <div ng-click="showAdd = true" class="btn btn-primary">Add card</div></h1>
+
+	<div class="board col-md-4 col-sm-6 col-xs-12" ng-repeat="board in boardList" board board-date="board" del-callback="delBoard">
+	</div>
+	<div class="overlay" ng-show="showAdd" ng-click="showAdd = false"></div>
+</div>

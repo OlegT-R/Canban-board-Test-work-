@@ -1,0 +1,31 @@
+<div class="auth-container">
+    <h1>Registration</h1>
+    <form name="regForm" ng-submit="regFormSubmit()" class="form-horizontal">
+        <div class="form-group" ng-class="{ 'error' : regForm.email.$invalid && !regForm.email.$pristine }">
+            <label for="inputEmail" class="col-xs-4 control-label">E-mail:</label>
+            <div class="col-xs-8" >
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Type email" ng-model="user.mail" required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'error' : regForm.name.$invalid && !regForm.email.$pristine }">
+            <label for="inputEmail" class="col-xs-4 control-label">Name:</label>
+            <div class="col-xs-8" >
+                <input type="text" name="name" class="form-control" id="inputName" placeholder="Type name" ng-model="user.name" required>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'error' : regForm.pass.$invalid && !regForm.email.$pristine }">
+            <label for="inputPassword" class="col-xs-4 control-label">Create password:</label>
+            <div class="col-xs-8">
+                <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Type password" ng-model="user.password" ng-minlength="6" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-7 col-xs-5 form-enter-group" >
+               <button type="submit" class="btn btn-primary">Registration</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="clearfix"></div>

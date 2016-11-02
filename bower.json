@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "authors": [
+    "Iversus <iversusm@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.5.x",
+    "jquery":"2.1.0",
+    "angular-route": "1.5.x",
+    "bootstrap": "3.3.x",
+    "angular-cookies":"1.5.x",
+    "angular-drag-and-drop-lists":"1.4.x"
+  }
+}

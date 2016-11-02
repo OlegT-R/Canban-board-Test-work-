@@ -1,0 +1,42 @@
+<div>
+    <div class="board-container">
+        <form name="addCardForm" ng-submit="addCard(); showAdd = false" class="card-form" ng-init="showAdd = false"
+              ng-show="showAdd">
+            <img src="/img/ico-close.png" class="close-add-card" ng-click="showAdd = false">
+            <div class="form-group"
+                 ng-class="{ 'error' : addCardForm.cardName.$invalid && !addCardForm.cardName.$pristine }">
+                <input type="text" name="cardName" class="form-control" placeholder="Type card name"
+                       ng-model="formCard.name" required>
+            </div>
+            <div class="form-group" ng-class="{ 'error' : addCardForm.email.$invalid && !addCardForm.email.$pristine }">
+                <input type="text" class="form-control" name="inputCardDesc" placeholder="Type card description"
+                       ng-model="formCard.description" required>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-8 col-xs-4 form-enter-group">
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="board-header">
+            <span class="board-name">{{boardDate.name}}</span>
+            <img src="/img/ico-plus.png" class="board-ico-plus"
+                 ng-click="showAdd= true">
+        </div>
+        <img class="delete-board" src="/img/ico-close.png" ng-click="deleteBoard()">
+        <div class="board-body" dnd-list="ids">
+            <div class="card" ng-repeat="id in ids"
+                 card card-id="{{::id}}"
+                 del-callback="deleteCard"
+                 dnd-draggable="id"
+                 dnd-dragstart="ids.splice($index, 1);"
+                 dnd-effect-allowed="move">
+
+            </div>
+        </div>
+        <div class="overlay" ng-show="showAdd" ng-click="showAdd = false"></div>
+        <div class="board-count">{{ids.length}}</div>
+        <div class="clearfix"></div>
+    </div>
+</div>

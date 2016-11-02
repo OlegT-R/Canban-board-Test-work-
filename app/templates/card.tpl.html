@@ -1,0 +1,21 @@
+<div ng-class="{'card-new':card.status == 'new','card-resolve':card.status == 'resolve','card-reject':card.status == 'reject'}">
+    <div class="card-container" ng-init="open = true">
+        <img src="/img/ico-close.png" class="delete-card" ng-click="deleteCard()">
+        <div class="card-header" >
+            <span ng-click="open = !open" ng-class="{'card-open-ico':open, 'card-close-ico':!open}"></span> <input title="Type and press enter to change" class="card-name" type="text" ng-model = "::card.name">
+        </div>
+        <div class="card-body" ng-show="open">
+            <div class="card-descr">
+                {{card.description}}
+            </div>
+            <div class="card-task-container">
+                 <div class="card-task" ng-repeat="task in card.tasks" ng-class="{'task-disabled':task.status == 'disabled'}">
+                     <input id="checkbox_{{task.id}}" ng-click = "changeCheckBox(task.id)" class="css-checkbox lrg" ng-checked="task.status == 'checked'" type="checkbox" ng-disabled="task.status == 'disabled'">
+                     <label class="css-label lrg web-two-style" for="checkbox_{{task.id}}" name="checkbox_n04_lbl" data-ng-bind="::task.name"></label>
+                     <img src="/img/ico-close.png" class="delete-task" ng-click="deleteTask($index)">
+                 </div>
+                   <input type="text" class="add-task" placeholder="Type and press enter to add task">
+            </div>
+        </div>
+    </div>
+</div>
